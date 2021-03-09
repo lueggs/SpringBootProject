@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form method="POST" th:action="@{/addEvent}" th:object="${event}">
+		<div th:if="${#fields.hasErrors()}">
+			<span class="validationError"> Please correct the problems and resubmit </span>
+		</div>
+
+		<!-- 		<label for="eventId">Event Id:</label> -->
+		<!-- 		<input type="text" th:field="*{eventId}" /> -->
+		<!-- 		<hr /> -->
+
+		<label for="title">title:</label>
+		<input type="text" th:field="*{title}" />
+		<hr />
+
+		<label for="categoryId">categoryId:</label>
+		<input type="text" th:field="*{categoryId}" />
+		<hr />
+
+		<label for="location">location:</label>
+		<input type="text" th:field="*{location}" />
+		<hr />
+
+		<label for="description">description:</label>
+		<input type="text" th:field="*{description}" />
+		<hr />
+
+		<label for="startDate">startDate:</label>
+		<input type="text" th:field="*{startDate}" />
+		<hr />
+
+
+		<label for="endDate">endDate:</label>
+		<input type="text" th:field="*{endDate}" />
+		<hr />
+
+
+		<label for="ccNumber">ccNumber:</label>
+		<input type="text" th:field="*{ccNumber}" />
+		<span class="validationError" th:if="${#fields.hasErrors('ccNumber')}" th:errors="*{ccNumber}"> CCNUM error </span>
+
+		<hr />
+
+
+		<label for="ccExpiration">ccExpiration:</label>
+		<input type="text" th:field="*{ccExpiration}" />
+		<span class="validationError" th:if="${#fields.hasErrors('ccExpiration')}" th:errors="*{ccExpiration}"> ccExpiration error </span>
+		<hr />
+
+
+		<label for="ccCVV">ccCVV:</label>
+		<input type="text" th:field="*{ccCVV}" />
+		<hr />
+		<input type="submit" value="SUBMIT" />
+	</form>
+
+</body>
+</html>
